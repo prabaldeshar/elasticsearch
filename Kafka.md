@@ -17,16 +17,21 @@ plugin.path = /home/yugant-terakoya/Desktop/kafka_2.13-3.2.1/plugins
 (.sh for linux)
 
 1. Start the zookeeper server. 
+```
 bin/zookeeper-server-start etc/kafka/zookeeper.properties 
-
+```
 2. Start the kafka sever
+```
 bin/kafka-server-start etc/kafka/server.properties
-
+```
 3. Start the connector server
+```
 bin/connect-distributed etc/kafka/connect-distributed.properties
-
+```
 ## 4. Go to your terminal and check if the connector is available
+```
 curl -s localhost:8083/connector-plugins|jq '.[].class'
+```
 
 We are looking for ElasticSourceConnector.
 
@@ -52,9 +57,13 @@ We are looking for ElasticSourceConnector.
 }
 
 ```
-
+## 6. Create the connector with the following CURL command.
+```
+curl -X POST -H "Content-Type: application/json" --data @config.json http://localhost:8083/connectors | jq
+```
 ## 6. Add a new data to ES.
 
 ## 7. Try to consume the topic named es_books using the folowing code in the terminal. 
+```
 bin/kafka-console-consumer --topic es_books --from-beginning --bootstrap-server localhost:9092
-
+```
