@@ -210,3 +210,8 @@ GET news_headline/_search
 }
 
 ```
+
+### Combined Queries
+
+If Combine three quieres:
+1. 
