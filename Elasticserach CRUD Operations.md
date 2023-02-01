@@ -14,6 +14,30 @@ PUT books
 
 Performing CRUD Operations with Elasticsearch and Kibana
 
+Creating Pipeline to add Timestamp to the data (this is required for Kakfa)
+
+```
+
+PUT _ingest/pipeline/timestamp
+{
+	"description": "Creates a timestamp when a document is initially indexed",
+	"processors": [{
+	"set": {
+	"field": "_source.timestamp",
+	"value": "{{_ingest.timestamp}}"
+		}
+		}
+]
+}
+```
+Using timestamp
+```
+PUT test-index/_doc/45?pipeline=timestamp
+{
+   "my_field": "test numero 45",
+   "my_field_2": "test"
+}```
+
 ### C- CREATE
 
 Index a document (Adding a document to an index)
