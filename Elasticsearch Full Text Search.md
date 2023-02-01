@@ -16,26 +16,6 @@ GET news_headline/_search
 
 [Download link](https://www.kaggle.com/datasets/rmisra/news-category-dataset?resource=download)
 
-Queries and Aggerations
-
-Queries return the data of our search but aggregations returns the information about or data.
-
-Example:
-
-```
-GET  news_headline/_search
-{
-	"aggregations": {
-		"by_category": {
-			"terms": {
-				"field": "category",
-				"size": 100
-			}
-		}
-	}
-}
-```
-
 
 ### Full Text Queries
 
