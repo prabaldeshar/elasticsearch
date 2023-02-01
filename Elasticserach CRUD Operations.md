@@ -36,7 +36,8 @@ PUT test-index/_doc/45?pipeline=timestamp
 {
    "my_field": "test numero 45",
    "my_field_2": "test"
-}```
+}
+```
 
 ### C- CREATE
 
